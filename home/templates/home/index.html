@@ -38,16 +38,19 @@
     <div class="container-fluid bgc-1">
         <div data-aos="zoom-in" class="row">
             {% for product in products %}
-            
                 <div class="card">
-                    <img src="{{product.product_image.url}}" class="cardImage" alt="product_image">
+                    <img src="{{tempImageWorkAround}}{{product.product_image}}" class="cardImage" alt="product_image">
                     <div class="cardContainer">
                         <h4><b> {{product.product_name}} </b></h4>
                         <p> {{product.product_price}} per oz. </p>
                     </div>
                 </div>
-            
             {% endfor %}      
+
+            {% if product.product_name == "St. John's Wort" %}
+                <img src="{}" class="cardImage" alt="product_image">
+            {% endif %}
+            
         </div>
     </div>
 </div>

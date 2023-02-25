@@ -15,4 +15,11 @@ Notes:
 '''
 def index(request):
     products = Product.objects.all()
-    return render(request, 'home/index.html', {'products':products})
+    return render(
+        request, 
+        'home/index.html', 
+        {
+            'products':products,
+            'tempImageWorkAround': "/static/home/" 
+        }
+    )

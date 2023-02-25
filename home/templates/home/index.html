@@ -5,10 +5,10 @@
 {% block body %}
 
 <!--About me container-->
-<div id="aboutMe">
+<div id="landing">
     <div class="container-fluid text-center bg-1">
         <div class="wrapper">
-            <div class="top-left">
+            <div class="top-right">
                 <h1>Erysimum's Apothecary</h1>
             </div>
         </div>
@@ -19,11 +19,26 @@
 <div id="mission">
     <div class="container-fluid container-fluid-buffer text-center bgc-1">
         <div class="row">
-            <h3 data-aos="fade-up" style="width: 600px; display:inline-block;"> 
-                All products are made from sustainably harvested organic herbs, either foraged 
-                or grown in Northern California. Our mission is to ease the stress and tension of life and help those 
-                struggling with chronic conditions better manage their symptoms.
-            </h3>
+
+            
+            <div style="width: 600px; display:inline-block;"> 
+                <img id="Erys" src="{% static 'home/images/Erys.jpg' %}" class="img-responsive img-rounded" style="display:inline; width: 80%;" alt="Erys">
+            </div>
+            
+
+            
+            <div style="width: 50%; display:inline-block;">
+                <div style="display: flex; justify-content: center; padding: 30px; "> 
+                    <h3> <b> Erysimum's Apothecary</b></h3>
+                </div>
+                <h4>
+                Hey there! I'm a Full Stack Developer with 3 years experience working in civic tech! My expertise is creating digital services for
+                those in need. I have worked with <a href="https://blogs.microsoft.com/bayarea/2016/04/07/spartan-hacks-takes-on-san-joses-key-civic-issues/">Microsoft as a Civic Tech Fellow</a>, 
+                the Mayor's Office of San Jose and most recently, Code For America <a href="https://codeforamerica.org/news/meet-the-community-fellows-team-fort-collins/">as a software engineer</a> 
+                helping Fort Collins' under-served residents <a href="https://getfoco.fcgov.com/"> get the services they need</a>, in all of those roles I made sure I did one thing, use my skills to help create change.
+                </h4>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -50,8 +65,6 @@
     </div>
 </div>
 
-
-
 <!--Reviews (buffer section) container
     Take out for now, shop must come first, will get reviews from Erys soon
 <div id="reviews">
@@ -77,6 +90,16 @@
     </div>
 </div>
 
+<div class="container-fluid container-fluid-buffer text-center bgc-1">
+    <div class="row">
+        <h3 data-aos="fade-up" style="width: 600px; display:inline-block;"> 
+            All products are made from sustainably harvested organic herbs, either foraged 
+            or grown in Northern California. Our mission is to ease the stress and tension of life and help those 
+            struggling with chronic conditions better manage their symptoms.
+        </h3>
+    </div>
+</div>
+
 <!--Contact me container-->
 <div id="contact" >
     <div class="container-fluid text-center bgc-1">
@@ -85,8 +108,13 @@
         <h3>I'm open to commissions, to find out more, email me with the button below or take a gander at my LinkedIn!</h3>
         <h3>For the technically curious, feel free to browse my GitHub.</h3>
       </div>
-      <a href="mailto: eygagnebin@gmail.com.com" class="btn btn-default btn-lg">
+      <a href="mailto: ErysimumsApothecary@Gmail.com" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-envelope"></span> Email
+      </a>
+      <a href="discord here" class="btn btn-default btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+        </svg> Discord
       </a>
     </div>
 </div>

@@ -118,6 +118,11 @@
     box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* universal text css modifications below */
+.well {
+    background-color: rgba(245, 245, 245, 0.4);
+}
+
 @media screen and (min-width : 768px) {
     .fadeLarge{
         display:none;

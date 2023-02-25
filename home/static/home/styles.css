@@ -118,6 +118,12 @@
     box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* universal text css modifications below */
+.well.well-opaque{
+    background-color: rgba(245, 245, 245, 0.4);
+    border: none;
+}
+
 @media screen and (min-width : 768px) {
     .fadeLarge{
         display:none;
@@ -146,7 +152,7 @@
    /*text positioning, coloring, font, etc. specific to desktop version */ 
    .wrapper {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: baseline;
     min-height: 300px;
   }

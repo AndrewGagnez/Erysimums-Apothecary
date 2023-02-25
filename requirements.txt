@@ -1,3 +1,4 @@
 python-dotenv
 django
 pillow
+django-heroku

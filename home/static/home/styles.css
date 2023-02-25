@@ -120,7 +120,7 @@
 
 /* universal text css modifications below */
 .well.well-opaque{
-    background-color: rgba(245, 245, 245, 0.4);
+    background-color: rgba(245, 245, 245, 0.3);
     border: none;
 }
 

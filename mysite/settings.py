@@ -38,7 +38,7 @@ DEBUG = False
 if IS_HEROKU:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = ["*"]
+    ALLOWED_HOSTS = []
 
 # Application definition
 

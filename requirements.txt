@@ -1,4 +1,3 @@
-python-dotenv
+django-environ
 django
 pillow
-django-on-heroku

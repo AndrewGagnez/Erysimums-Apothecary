@@ -1,0 +1,101 @@
+{% extends "base_templates/base.html" %}
+<!-- This brings in the CSS-->
+{% load static %}
+
+{% block body %}
+
+<!--About me container-->
+<div id="aboutMe">
+    <div class="container-fluid text-center bg-1">
+        <div class="wrapper">
+            <div class="top-left">
+                <h1>Erysimum's Apothecary</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Mission (buffer section) container-->
+<div id="mission">
+    <div class="container-fluid container-fluid-buffer text-center bgc-1">
+        <div class="row">
+            <h3 data-aos="fade-up" style="width: 600px; display:inline-block;"> 
+                All products are made from sustainably harvested organic herbs, either foraged 
+                or grown in Northern California. Our mission is to ease the stress and tension of life and help those 
+                struggling with chronic conditions better manage their symptoms.
+            </h3>
+        </div>
+    </div>
+</div>
+
+<div id="bufferPlant">
+    <div class="container-fluid container-fluid-buffer text-center bg-buffer-1">
+    </div>
+</div>
+
+<!--Sales (buffer section) container / hot items -->
+<div id="specialPurchase">
+    <div class="container-fluid bgc-1">
+        <div data-aos="zoom-in" class="row">
+            {% for product in products %}
+            
+                <div class="card">
+                    <img src="{{product.product_image.url}}" class="cardImage" alt="product_image">
+                    <div class="cardContainer">
+                        <h4><b> {{product.product_name}} </b></h4>
+                        <p> {{product.product_price}} per oz. </p>
+                    </div>
+                </div>
+            
+            {% endfor %}      
+        </div>
+    </div>
+</div>
+
+
+
+<!--Reviews (buffer section) container
+    Take out for now, shop must come first, will get reviews from Erys soon
+<div id="reviews">
+    <div class="container-fluid container-fluid-buffer">
+        buffer - can use this section for reviews? testimonials?
+    </div>
+</div>
+-->
+
+<!--Shop container
+    Take out for now, Shop will be expanded on when more items on sale
+<div id="education">
+    <div class="container-fluid text-center bg-2">
+        <a href="https://www.etsy.com/shop/ErysimumsApothecary" style="color: #F4F4F4; font-size: xx-large">Shop:</a>
+    </div>
+</div>
+-->
+
+<!--Education container-->
+<div id="education">
+    <div class="container-fluid text-center bg-3 ">
+        <a href="" style="color: #F4F4F4; font-size: xx-large;">Education [Coming Soon!]</a>
+    </div>
+</div>
+
+<!--Contact me container-->
+<div id="contact" >
+    <div class="container-fluid text-center bgc-1">
+      <div style="padding-bottom: 50px;">       
+        <h3>Say Hi!</h3>     
+        <h3>I'm open to commissions, to find out more, email me with the button below or take a gander at my LinkedIn!</h3>
+        <h3>For the technically curious, feel free to browse my GitHub.</h3>
+      </div>
+      <a href="mailto: eygagnebin@gmail.com.com" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-envelope"></span> Email
+      </a>
+    </div>
+</div>
+
+
+<footer class="container-fluid bg-footer text-center">
+    <p>Theme made by Andrew</p>
+</footer>
+
+{% endblock %}

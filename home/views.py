@@ -21,7 +21,7 @@ Variables:
 
 Notes:
 '''
-def index(request):
+def home(request):
     products = Product.objects.all()
     return render(
         request, 

@@ -11,7 +11,7 @@
 .bg-1 { /* about us section background */
     background-color: #1abc9c; /* Green */
     color: #ffffff;
-    background-image: url("/static/home/images/shop.jpg");
+    background-image: url("/static/home/images/HomePage_Image.jpg");
     background-size:cover; /* or "contain" depending on what you want */
     background-position: center center;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 .bg-2 { /* shop section background */
     background-color: #1abc9c; /* Green */
     color: #ffffff;
-    background-image: url("/static/home/images/etsy.jpg");
+    background-image: url("/static/home/images/ShopPage_Image.jpg");
     background-size:cover; /* or "contain" depending on what you want */
     background-position: center center;
     background-repeat: no-repeat;
@@ -98,9 +98,10 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    width: 10%;
+    width: 100%;
     color: black;
     background-color: goldenrod;
+    margin: 20px;
 }
 
 .cardImage {
@@ -136,7 +137,6 @@
        width: 100%;
        box-sizing: border-box;
        position: relative;
-       background-image: white url('/static/home/images/etsy.jpg') no-repeat ;
    }
 
    .column {

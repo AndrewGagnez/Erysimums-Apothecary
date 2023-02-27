@@ -137,7 +137,6 @@
        width: 100%;
        box-sizing: border-box;
        position: relative;
-       background-image: white url('/static/home/images/etsy.jpg') no-repeat ;
    }
 
    .column {

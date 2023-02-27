@@ -11,7 +11,7 @@
 .bg-1 { /* about us section background */
     background-color: #1abc9c; /* Green */
     color: #ffffff;
-    background-image: url("/static/home/images/shop.jpg");
+    background-image: url("home/static/images/ShopPage_Image.jpg");
     background-size:cover; /* or "contain" depending on what you want */
     background-position: center center;
     background-repeat: no-repeat;

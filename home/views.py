@@ -25,7 +25,7 @@ def home(request):
     products = Product.objects.all()
     return render(
         request, 
-        'home/index.html', 
+        'index.html', 
         {
             'products':products,
             'tempImageWorkAround': "/static/home/" #TODO cannot keep this as a permanent solution, need to implement external hosting for database and admin uploaded images

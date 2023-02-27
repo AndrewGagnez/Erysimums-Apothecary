@@ -24,7 +24,7 @@
 .bg-2 { /* shop section background */
     background-color: #1abc9c; /* Green */
     color: #ffffff;
-    background-image: url("/home/static/images/ShopPage_Image.jpg");
+    background-image: url("/static/images/ShopPage_Image.jpg");
     background-size:cover; /* or "contain" depending on what you want */
     background-position: center center;
     background-repeat: no-repeat;
@@ -36,7 +36,7 @@
 .bg-3 { /* education section background */
     background-color: #1abc9c; /* Green */
     color: #ffffff;
-    background-image: url("home/static/images/e.jpg");
+    background-image: url("/static/images/EducationPage_Image.jpg");
     background-size:cover; /* or "contain" depending on what you want */
     background-position: center center;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@
 .bg-buffer-1 { /* buffer image section background */
     background-color: #662012; /* Green */
     color: goldenrod;
-    background-image: url("/static/home/images/vineBuffer.png");
+    background-image: url("/static/images/vineBuffer.png");
     background-size: 100%;
     background-position: center center;
     background-repeat: no-repeat;

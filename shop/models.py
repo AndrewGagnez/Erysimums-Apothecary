@@ -99,16 +99,7 @@ class Order(models.Model):
         return Order.objects.filter(customer=customer_id).order_by('-date')
 
 """
-TODO for now commenting out order, shipment, customer and thensome for later versions, product should be all that is needed for MVP
-#order
-class Order(models.Model):
-    order_id = models.IntegerField()
-    order_date = models.DateField()
-
-    #below are other tables that have a relation to this table
-    #customer_id
-    #product_id
-
+TODO for now commenting out shipment and review for later versions, product should be all that is needed for MVP
 #shipment
 class Shipment(models.Model):
     shipment_id = models.IntegerField()

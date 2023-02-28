@@ -5,7 +5,7 @@
 <html lang="en">
 
     <head>
-        <link href="{% static 'styles.css' %}" rel="stylesheet">
+        <link href="{% static 'styles.css' %}"  rel="stylesheet">
         <!--boot strap 3 style sheet -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -35,7 +35,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="{% url 'home:home' %}">Home</a></li>
                     <li><a href="#about">About Me</a></li>
                     <li><a href="#shop">Shop</a></li>
                     <li><a href="#contact">Contact</a></li>

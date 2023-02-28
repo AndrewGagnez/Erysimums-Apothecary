@@ -46,6 +46,18 @@
     padding:0;
 }
 
+.bg-buffer-2 { /* specials and deals section background */
+    background-color: gold;
+    color: #ffffff;
+    background-image: url("/static/images/specialsBuffer.jpg");
+    background-size:cover; /* or "contain" depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:auto;
+    padding:0;
+}
+
 .bg-buffer-1 { /* buffer image section background */
     background-color: #662012; /* Green */
     color: goldenrod;

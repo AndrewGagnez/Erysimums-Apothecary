@@ -57,16 +57,7 @@ def catalog(request):
     data['categories'] = categories
   
     print('you are : ', request.session.get('email'))
-    products = Product.objects.all()
-    return render(
-        request, 
-        'comingsoon.html', 
-        {
-            'products':products,
-            'tempImageWorkAround': "/static/home/" #TODO cannot keep this as a permanent solution, need to implement external hosting for database and admin uploaded images
-        },
-        data
-    )
+    return render(request, 'comingsoon.html', data)
 
   
 class Login(View):

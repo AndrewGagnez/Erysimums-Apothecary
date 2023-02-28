@@ -57,7 +57,7 @@ def catalog(request):
     data['categories'] = categories
   
     print('you are : ', request.session.get('email'))
-    return render(request, 'comingsoon.html', data)
+    return render(request, 'shop.html', data)
 
   
 class Login(View):

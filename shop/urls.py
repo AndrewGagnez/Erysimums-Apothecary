@@ -13,7 +13,7 @@ from shop.views import OrderView
 
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
-    path('shop', views.catalog, name='shop'),
+    path('catalog', views.catalog, name='catalog'),
 
     path('signup', SignUp.as_view(), name='signup'),
     path('login', Login.as_view(), name='login'),

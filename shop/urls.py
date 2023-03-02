@@ -14,10 +14,6 @@ from shop.views import OrderView
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
     path('catalog', views.catalog, name='catalog'),
-
-    path('signup', SignUp.as_view(), name='signup'),
-    path('login', Login.as_view(), name='login'),
-    path('logout', views.Logout, name='logout'),
     path('cart', AuthenticationMiddleware(Cart.as_view()), name='cart'),
     path('check-out', CheckOut.as_view() , name='checkout'),
     path('orders', AuthenticationMiddleware(OrderView.as_view()), name='orders'),

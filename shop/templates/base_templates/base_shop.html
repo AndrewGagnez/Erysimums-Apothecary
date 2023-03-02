@@ -1,0 +1,78 @@
+<!-- This brings in the CSS-->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link href="{% static 'styles.css' %}"  rel="stylesheet">
+        <!--boot strap 3 style sheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <!--Animate on Scroll-->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <!--Spectral font courtesy Google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;1,200;1,300;1,800&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+    <!--TopNav / Banner-->
+    <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom:0">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Erysimum's Apothecary</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'home:home' %}">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    
+
+                    <!-- Login and cart-->
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/cart">Cart 
+                        <span class="badge badge-success">{{request.session.cart.keys|length}}</span>
+                        <span class="sr-only">(current)</span></a>
+                    </li>
+            
+                    {% if request.session.customer %}
+                    
+                    <li class="nav-item active ">
+                    <a class="nav-link" href="/orders">Orders<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active ">
+                    <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                    {% else %}
+                    
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+        {% block body %}
+        {% endblock %}
+    </body>
+    
+    <script src="{% static '/scripts.js' %}"></script>
+
+</html>

@@ -1,4 +1,4 @@
-{% extends "base_templates/base.html" %}
+{% extends "base_templates/base_home.html" %}
 <!-- This brings in the CSS-->
 {% load static %}
 
@@ -22,7 +22,7 @@
 
             
             <div style="width: 600px; display:inline-block;"> 
-                <img id="Erys" src="{% static 'home/images/Erys.jpg' %}" class="img-responsive img-rounded" style="display:inline; width: 80%;" alt="Erys">
+                <img id="Erys" src="{% static '/images/Erys.jpg' %}" class="img-responsive img-rounded" style="display:inline; width: 80%;" alt="Erys">
             </div>
             
 
@@ -59,22 +59,50 @@
     </div>
 </div>
 
+
+
+
+
 <!--Sales (buffer section) container / hot items -->
-<div id="shop">
-    <div class="container-fluid bgc-1">
+<div id="specials">
+    <div class="container-fluid text-center bgc-1">
+        <h1>Specials</h1>
         <div data-aos="zoom-in" class="row">
-            {% for product in products %}
-                <div class="card">
-                    <img src="{{tempImageWorkAround}}{{product.product_image}}" class="cardImage" alt="product_image">
+            {% for special in specials %}
+                <div class="card img-responsive">
+                    <img src="{{tempImageWorkAround}}{{special.product_image}}" class="cardImage" alt="product_image">
                     <div class="cardContainer">
-                        <h4><b> {{product.product_name}} </b></h4>
-                        <p> {{product.product_price}} per oz. </p>
+                        <h4><b> {{special.product_name}} </b></h4>
+                        <p> {{special.product_price}} per oz. </p>
                     </div>
                 </div>
             {% endfor %}            
         </div>
     </div>
 </div>
+
+<div id="bufferSpecials">
+    <div class="container-fluid text-center bg-buffer-2 ">
+        <a href="" style="color: #F4F4F4; font-size: xx-large;">Specials and Deals</a>
+    </div>
+</div>
+
+
+
+<!--Shop container-->
+<div id="shop">
+    <div class="container-fluid text-center bg-2" style="height: auto;">
+        <a href="" style="color: #F4F4F4; font-size: xx-large;">Shop [Coming Soon!]</a>
+    </div>
+</div>
+
+<!--Education container-->
+<div id="education">
+    <div class="container-fluid text-center bg-3 ">
+        <a href="" style="color: #F4F4F4; font-size: xx-large;">Education [Coming Soon!]</a>
+    </div>
+</div>
+
 
 <!--Reviews (buffer section) container
     Take out for now, shop must come first, will get reviews from Erys soon
@@ -85,21 +113,7 @@
 </div>
 -->
 
-<!--Shop container
-    Take out for now, Shop will be expanded on when more items on sale
-<div id="education">
-    <div class="container-fluid text-center bg-2">
-        <a href="https://www.etsy.com/shop/ErysimumsApothecary" style="color: #F4F4F4; font-size: xx-large">Shop:</a>
-    </div>
-</div>
--->
 
-<!--Education container-->
-<div id="education">
-    <div class="container-fluid text-center bg-3 ">
-        <a href="" style="color: #F4F4F4; font-size: xx-large;">Education [Coming Soon!]</a>
-    </div>
-</div>
 
 <div class="container-fluid container-fluid-buffer text-center bgc-1">
     <div class="row">

@@ -1,6 +1,18 @@
 from django.db import models
+import datetime
 
 # Create your models here.
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+  
+    @staticmethod
+    def get_all_categories():
+        return Category.objects.all()
+  
+    def __str__(self):
+        return self.name
 
 #product
 class Product(models.Model):
@@ -12,6 +24,30 @@ class Product(models.Model):
         default = 'product_images/default_product_image.jpg', #TODO check if this works
         upload_to = 'product_images'
         )
+    
+    #category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1) 
+    # TODO this is the old models code for category, this code actually  allows for more settings in admin like view individual category 
+    # and see all categories... when we change it to manytomany it strips that away... does it have something to do with the defined 
+    # class functions?
+    # regardless, check to see if this is something that you want....
+    # nvm, did some tests and deleted the staticmethods below and it didn't do shit in admin
+    category = models.ManyToManyField(Category, default="Non Categorized")
+
+
+    @staticmethod
+    def get_products_by_id(ids):
+        return Product.objects.filter(id__in=ids)
+  
+    @staticmethod
+    def get_all_products():
+        return Product.objects.all()
+  
+    @staticmethod
+    def get_all_products_by_categoryid(category_id):
+        if category_id:
+            return Product.objects.filter(category=category_id)
+        else:
+            return Product.get_all_products()
 
     #Future Feature
     #product_id = models.IntegerField()
@@ -22,17 +58,56 @@ class Product(models.Model):
     #product_rating
     #product_review
 
-"""
-TODO for now commenting out order, shipment, customer and thensome for later versions, product should be all that is needed for MVP
-#order
+
+class Customer(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=10)
+    email = models.EmailField()
+    password = models.CharField(max_length=100)
+  
+    # to save the data
+    def register(self):
+        self.save()
+  
+    @staticmethod
+    def get_customer_by_email(email):
+        try:
+            return Customer.objects.get(email=email)
+        except:
+            return False
+  
+    def isExists(self):
+        if Customer.objects.filter(email=self.email):
+            return True
+  
+        return False
+    
+
+
 class Order(models.Model):
-    order_id = models.IntegerField()
-    order_date = models.DateField()
+    product = models.ForeignKey(Product,
+                                on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer,
+                                 on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    price = models.IntegerField()
+    address = models.CharField(max_length=50, default='', blank=True)
+    phone = models.CharField(max_length=50, default='', blank=True)
+    date = models.DateField(default=datetime.datetime.today)
+    status = models.BooleanField(default=False)
+  
+    def placeOrder(self):
+        self.save()
+  
+    @staticmethod
+    def get_orders_by_customer(customer_id):
+        return Order.objects.filter(customer=customer_id).order_by('-date')
+    
+    
 
-    #below are other tables that have a relation to this table
-    #customer_id
-    #product_id
-
+"""
+TODO for now commenting out shipment and review for later versions, product should be all that is needed for MVP
 #shipment
 class Shipment(models.Model):
     shipment_id = models.IntegerField()
@@ -40,14 +115,6 @@ class Shipment(models.Model):
     
     #below are other tables that have a relation to this table
     #order_id
-
-#customer
-class Customer(models.Model):
-    customer_id = models.IntegerField()
-    customer_name = models.CharField()
-    customer_email = models.CharField()
-    customer_address = models.CharField()
-    customer_phone_number = models.IntegerField()
 
 #review
 class Review(models.Model):

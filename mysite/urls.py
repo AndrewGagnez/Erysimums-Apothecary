@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings  # new
-from django.conf.urls.static import static  # new
+from django.conf import settings  
+from django.conf.urls.static import static
 
 from home import views
+from shop import views
 from django.views.generic import RedirectView
 
 
@@ -27,14 +28,14 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include(('home.urls', 'home'),namespace='home')),
+    path('shop/', include(('shop.urls', 'shop'),namespace='shop')),
     #path('edu/', include(('edu.urls', 'edu'),namespace='edu')),
-    #path('shop/', include(('shop.urls', 'shop'),namespace='shop')),
 ]
 
 if settings.DEBUG:
      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 #include urlpattern for media folder, MUST GO INTO THIS URL.PY FILE the config url file
+
 urlpatterns += [
     path('', RedirectView.as_view(url='home/', permanent=True)),
 ]

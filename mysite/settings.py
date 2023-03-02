@@ -144,6 +144,10 @@ STATIC_ROOT = os.path.join(
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
+STATICFILES_DIRS = [
+    "static/",
+]
+
 #for file uploads
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

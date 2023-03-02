@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from shop.models import *
-
+from django.views import View
 
 '''
 TODO fill this out
@@ -21,13 +21,16 @@ Variables:
 
 Notes:
 '''
-def index(request):
-    products = Product.objects.all()
+
+# Create your views here.
+def home(request):
+    specials = Product.objects.filter(category=Category.objects.get(name="On Sale")).values
     return render(
         request, 
-        'home/index.html', 
+        'index.html', 
         {
-            'products':products,
-            'tempImageWorkAround': "/static/home/" #TODO cannot keep this as a permanent solution, need to implement external hosting for database and admin uploaded images
-        }
+            'specials':specials,
+            'tempImageWorkAround': "/static/" #TODO cannot keep this as a permanent solution, need to implement external hosting for database and admin uploaded images
+        },
+    
     )

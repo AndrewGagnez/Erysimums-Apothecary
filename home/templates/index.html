@@ -77,9 +77,10 @@
                         <p>{{tempImageWorkAround}}{{product.product_image}}</p>
 
                         {% for category in product.category.all %}
-                            <p>{{product.category.all}}</p>
+                            <p>{{product.category}}</p>
+                            
                         {% endfor %}
-                        
+
                     </div>
                 </div>
             {% endfor %}            

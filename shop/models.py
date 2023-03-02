@@ -25,6 +25,11 @@ class Product(models.Model):
         upload_to = 'product_images'
         )
     
+    #category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1) 
+    # TODO this is the old models code for category, this code actually  allows for more settings in admin like view individual category 
+    # and see all categories... when we change it to manytomany it strips that away... does it have something to do with the defined 
+    # class functions?
+    # regardless, check to see if this is something that you want....
     category = models.ManyToManyField(Category, default="Non Categorized")
 
 

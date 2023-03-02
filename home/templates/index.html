@@ -68,19 +68,13 @@
     <div class="container-fluid text-center bgc-1">
         <h1>Specials</h1>
         <div data-aos="zoom-in" class="row">
-            {% for product in products %}
+            {% for special in specials %}
                 <div class="card img-responsive">
-                    <img src="{{tempImageWorkAround}}{{product.product_image}}" class="cardImage" alt="product_image">
+                    <img src="{{tempImageWorkAround}}{{special.product_image}}" class="cardImage" alt="product_image">
                     <div class="cardContainer">
-                        <h4><b> {{product.product_name}} </b></h4>
-                        <p> {{product.product_price}} per oz. </p>
-                        <p>{{tempImageWorkAround}}{{product.product_image}}</p>
-
-                        {% for category in product.category.all %}
-                            <p>{{product.category}}</p>
-                            
-                        {% endfor %}
-
+                        <h4><b> {{special.product_name}} </b></h4>
+                        <p> {{special.product_price}} per oz. </p>
+                        <p>{{tempImageWorkAround}}{{special.product_image}}</p>
                     </div>
                 </div>
             {% endfor %}            

@@ -24,12 +24,12 @@ Notes:
 
 # Create your views here.
 def home(request):
-    products = Product.objects.all()
+    specials = Product.objects.filter(category=Category.objects.get(name="On Sale")).values
     return render(
         request, 
         'index.html', 
         {
-            'products':products,
+            'specials':specials,
             'tempImageWorkAround': "/static/" #TODO cannot keep this as a permanent solution, need to implement external hosting for database and admin uploaded images
         },
     

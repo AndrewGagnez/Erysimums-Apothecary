@@ -59,10 +59,10 @@
 }
 
 .bg-buffer-1 { /* buffer image section background */
-    background-color: #662012; /* Green */
+    background-color: #581830; /* maroon */
     color: goldenrod;
     background-image: url("/static/images/vineBuffer.png");
-    background-size: 100%;
+    background-size: 200%;
     background-position: center center;
     background-repeat: no-repeat;
     text-align:center;
@@ -71,7 +71,7 @@
 }
 
 .bgc-1 { /*background color 1 to be used for sections without background images */
-    background-color: #662012;
+    background-color: #581830; /* maroon */
     color: goldenrod;
 }
 

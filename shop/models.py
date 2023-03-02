@@ -30,6 +30,7 @@ class Product(models.Model):
     # and see all categories... when we change it to manytomany it strips that away... does it have something to do with the defined 
     # class functions?
     # regardless, check to see if this is something that you want....
+    # nvm, did some tests and deleted the staticmethods below and it didn't do shit in admin
     category = models.ManyToManyField(Category, default="Non Categorized")
 
 

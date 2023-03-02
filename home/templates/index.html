@@ -74,6 +74,12 @@
                     <div class="cardContainer">
                         <h4><b> {{product.product_name}} </b></h4>
                         <p> {{product.product_price}} per oz. </p>
+                        <p>{{tempImageWorkAround}}{{product.product_image}}</p>
+
+                        {% for category in product.category.all %}
+                            <p>{{product.category.all}}</p>
+                        {% endfor %}
+                        
                     </div>
                 </div>
             {% endfor %}            

@@ -25,7 +25,7 @@ class Product(models.Model):
         upload_to = 'product_images'
         )
     
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    category = models.ManyToManyField(Category, default="Non Categorized")
 
 
     @staticmethod

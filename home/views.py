@@ -2,6 +2,14 @@ from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from shop.models import *
 from django.views import View
 
+from django.views import View
+
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import make_password
+
+import datetime
+
+
 '''
 TODO fill this out
 Purpose: 

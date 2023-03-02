@@ -5,8 +5,6 @@ from . import views
 
 from django.contrib.auth.middleware import AuthenticationMiddleware
 from shop.views import Index
-from shop.views import Login
-from shop.views import SignUp
 from shop.views import CheckOut
 from shop.views import Cart
 from shop.views import OrderView

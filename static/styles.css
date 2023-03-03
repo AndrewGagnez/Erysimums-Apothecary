@@ -188,4 +188,12 @@
         background-color: goldenrod;
         margin: 20px;
     }
+
+    .row {
+        display:flex;
+        justify-content: space-around;
+        padding: 10% 0%;
+        background-repeat: no-repeat;
+        background-position: center;
+    } 
 }

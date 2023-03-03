@@ -35,7 +35,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="{% url 'home:home' %}">Home</a></li>
                     <li><a href="#about">About Me</a></li>
                     <li><a href="{% url 'shop:catalog' %}">Shop</a></li>
                     <li><a href="#specials">Specials</a></li>
@@ -60,10 +60,10 @@
                       {% else %}
                      
                       <li class="nav-item active">
-                        <a class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home/signup">Signup<span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item active">
-                        <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home/login">Login<span class="sr-only">(current)</span></a>
                       </li>
                       {% endif %}
 

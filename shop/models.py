@@ -38,7 +38,7 @@ class Product(models.Model):
     
     category = models.ForeignKey(Category, default=1, on_delete=models.CASCADE)
     #category = models.ManyToManyField(Category, default="Non Categorized") TODO this old category is manytomanyfield and changes things
-    remedy = models.ManyToManyField(Remedy, default=1)
+    remedy = models.ManyToManyField(Remedy, default="None")
 
 
     @staticmethod

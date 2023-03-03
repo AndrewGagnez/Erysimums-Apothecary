@@ -5,11 +5,21 @@ import datetime
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=50)
-  
+    name = models.CharField(max_length=250)
+
     @staticmethod
     def get_all_categories():
         return Category.objects.all()
+  
+    def __str__(self):
+        return self.name
+
+class Remedy(models.Model):
+    name = models.CharField(max_length=250)
+
+    @staticmethod
+    def get_all_remedies():
+        return Remedy.objects.all()
   
     def __str__(self):
         return self.name
@@ -19,19 +29,16 @@ class Product(models.Model):
     product_name = models.CharField(max_length=255)
     product_quantity = models.IntegerField()
     product_price = models.DecimalField(max_digits=5, decimal_places=2)
+    on_sale = models.BooleanField(default=False)
     product_description = models.TextField()
     product_image = models.ImageField(
         default = 'product_images/default_product_image.jpg', #TODO check if this works
         upload_to = 'product_images'
         )
     
-    #category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1) 
-    # TODO this is the old models code for category, this code actually  allows for more settings in admin like view individual category 
-    # and see all categories... when we change it to manytomany it strips that away... does it have something to do with the defined 
-    # class functions?
-    # regardless, check to see if this is something that you want....
-    # nvm, did some tests and deleted the staticmethods below and it didn't do shit in admin
-    category = models.ManyToManyField(Category, default="Non Categorized")
+    category = models.ForeignKey(Category, default=1, on_delete=models.CASCADE)
+    #category = models.ManyToManyField(Category, default="Non Categorized") TODO this old category is manytomanyfield and changes things
+    remedy = models.ManyToManyField(Remedy, default=1)
 
 
     @staticmethod
@@ -46,6 +53,13 @@ class Product(models.Model):
     def get_all_products_by_categoryid(category_id):
         if category_id:
             return Product.objects.filter(category=category_id)
+        else:
+            return Product.get_all_products()
+        
+    @staticmethod
+    def get_all_products_by_remedyid(remedy_id):
+        if remedy_id:
+            return Product.objects.filter(remedy=remedy_id)
         else:
             return Product.get_all_products()
 

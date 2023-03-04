@@ -80,6 +80,11 @@
     color: goldenrod;
 }
 
+.bgc-3 { /*background color 1 to be used for sections without background images */
+    background-color: #58182ff1; /* maroon */
+    color: goldenrod;
+}
+
 .bg-footer {
     background-color: goldenrod;
     color: #ffffff;

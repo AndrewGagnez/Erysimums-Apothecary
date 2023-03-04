@@ -32,7 +32,8 @@ Notes:
 
 # Create your views here.
 def home(request):
-    specials = Product.objects.filter(category=Category.objects.get(name="On Sale")).values
+    #specials = Product.objects.filter(category=Category.objects.get(name="On Sale")).values TODO reference to old method of filtering out sale items, use this as reference, delete when ready
+    specials = Product.objects.filter(on_sale="True").values
     return render(
         request, 
         'index.html', 

@@ -66,7 +66,7 @@ class Login(View):
                     return HttpResponseRedirect(Login.return_url)
                 else:
                     Login.return_url = None
-                    return redirect('homepage')
+                    return redirect('home:home')
             else:
                 error_message = 'Invalid !!'
         else:
@@ -78,7 +78,7 @@ class Login(View):
   
 def Logout(request):
     request.session.clear()
-    return redirect('login')
+    return redirect('home:login')
 
 
 
@@ -113,7 +113,7 @@ class SignUp (View):
 			print(first_name, last_name, phone, email, password)
 			customer.password = make_password(customer.password)
 			customer.register()
-			return redirect('homepage')
+			return redirect('home:home')
 		else:
 			data = {
 				'error': error_message,

@@ -112,6 +112,15 @@
 
 
 /* cards for products */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 100%;
+    color: black;
+    background-color: goldenrod;
+    margin-bottom: 20px;
+}
 
 
 .cardImage {
@@ -150,22 +159,8 @@
    }
 
    .column {
-        width: 50%
+        width: 50%;
    }
-   .row {
-        display:flex;
-        justify-content: space-around;
-        padding: 10% 0%;
-        background-repeat: no-repeat;
-        background-position: center;
-    } 
-   .row.row-shop{
-        display:flex;
-        justify-content: space-around;
-        padding: 0px;
-        background-repeat: no-repeat;
-        background-position: center;
-   } 
    /*text positioning, coloring, font, etc. specific to desktop version */ 
    .wrapper {
         display: flex;
@@ -173,16 +168,6 @@
         align-items: baseline;
         min-height: 300px;
   }
-  .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 5px; /* 5px rounded corners */
-        width: 20%;
-        color: black;
-        background-color: goldenrod;
-        margin-left: 20px;
-        margin-right:20px;
-    }
   
 }
 
@@ -192,30 +177,10 @@
    .fadeSmall{
         display:none;
    }
-   .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 5px; /* 5px rounded corners */
-        width: 100%;
-        color: black;
-        background-color: goldenrod;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
     .row {
-        justify-content: space-around;
         padding: 10% 10%;
-        background-repeat: no-repeat;
-        background-position: center;
     } 
 
-    .row.row-shop{
-        padding: 10% 10%;
-        justify-content: space-around;
-        background-repeat: no-repeat;
-        background-position: center;
-    } 
     /* TODO update shop row below when the time is right to make sure shop columns and row looks good!*/
 
 }

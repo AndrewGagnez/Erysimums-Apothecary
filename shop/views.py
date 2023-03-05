@@ -33,7 +33,7 @@ class Index(View):
   
         request.session['cart'] = cart
         print('cart', request.session['cart'])
-        return redirect('homepage')
+        return redirect('home:home')
   
     def get(self, request):
         # print()
@@ -88,7 +88,7 @@ class CheckOut(View):
 			order.save()
 		request.session['cart'] = {}
 
-		return redirect('cart')
+		return redirect('shop:cart')
 
 
 class OrderView(View):

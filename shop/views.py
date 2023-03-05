@@ -9,7 +9,6 @@ import datetime
 
 # Create your views here.
 class Index(View):
-  
     def post(self, request):
         product = request.POST.get('product')
         remove = request.POST.get('remove')

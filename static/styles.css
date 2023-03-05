@@ -4,8 +4,8 @@
     /* DEBUGGING CSS BELOW! GREAT CODE 
     background: #000 !important;
     color: #0f0 !important;
-    outline: solid #f00 1px !important; 
-    */
+    outline: solid #f00 1px !important; */
+    
 }
 
 .bg-1 { /* about us section background */
@@ -134,7 +134,7 @@
     background-color: rgba(245, 245, 245, 0.3);
     border: none;
 }
-
+/* Desktop css found below */
 @media screen and (min-width : 768px) {
     .fadeLarge{
         display:none;
@@ -153,9 +153,16 @@
        width: 50%
    }
    .row {
+    display:flex;
+    justify-content: space-around;
+    padding: 10% 0%;
+    background-repeat: no-repeat;
+    background-position: center;
+    } 
+   .row.row-shop{
        display:flex;
        justify-content: space-around;
-       padding: 10% 0%;
+       padding: 0px;
        background-repeat: no-repeat;
        background-position: center;
    } 
@@ -173,7 +180,7 @@
         width: 20%;
         color: black;
         background-color: goldenrod;
-        margin: 20px;
+        margin: auto;
     }
   
 }
@@ -191,14 +198,22 @@
         width: 100%;
         color: black;
         background-color: goldenrod;
-        margin: 20px;
+        margin: auto;
     }
 
     .row {
-        display:flex;
         justify-content: space-around;
-        padding: 10% 0%;
+        padding: 10% 10%;
         background-repeat: no-repeat;
         background-position: center;
     } 
+
+    .row.row-shop{
+        padding: 10% 10%;
+        justify-content: space-around;
+        background-repeat: no-repeat;
+        background-position: center;
+    } 
+    /* TODO update shop row below when the time is right to make sure shop columns and row looks good!*/
+
 }

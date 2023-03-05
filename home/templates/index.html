@@ -62,17 +62,20 @@
 <div id="specials">
     <div class="container-fluid text-center bgc-1">
         <h1>Specials</h1>
-        <div data-aos="zoom-in" class="row">
+        <div data-aos="zoom-in" class="row mx-auto">
             {% for special in specials %}
-                <div class="card img-responsive">
-                    <img src="{{tempImageWorkAround}}{{special.product_image}}" class="cardImage" alt="product_image">
-                    <div class="cardContainer">
-                        <h4><b> {{special.product_name}} </b></h4>
-                        <p> {{special.product_price}} per oz. </p>
+            <div class="col-sm-3">
+                <div class="card mx-auto mb-3" id={{product.product_id}} style="width: 18rem;">
+                    <img class="cardImage" src="{{tempImageWorkAround}}{{special.product_image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-title">{{special.product_name}}</p>
+                        <p class="card-text"><b>{{special.product_price}}</b></p>
                     </div>
                 </div>
-            {% endfor %}            
+            </div>
+            {% endfor %}
         </div>
+
     </div>
 </div>
 

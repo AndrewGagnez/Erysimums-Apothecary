@@ -37,6 +37,7 @@ DEBUG = False
 
 if IS_HEROKU:
     ALLOWED_HOSTS = ["*"]
+    CSRF_TRUSTED_ORIGINS = ["https://erysimums-apothecary.herokuapp.com"]
 else:
     ALLOWED_HOSTS = []
 

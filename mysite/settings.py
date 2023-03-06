@@ -36,7 +36,7 @@ if 'SECRET_KEY' in os.environ:
 DEBUG = False
 
 if IS_HEROKU:
-    ALLOWED_HOSTS = ["http://127.0.0.1"]
+    ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = []
 

@@ -36,7 +36,8 @@ class Index(View):
   
     def get(self, request):
         # print()
-        return HttpResponseRedirect(f'/shop/catalog{request.get_full_path()[1:]}') #TODO see what this does????
+        return HttpResponseRedirect(f'/{request.get_full_path()[1:]}catalog') #TODO see what this does 
+            # TODO 3/6 it seems to add a redirect! f'/get full path catalog' leads to shop/catalog when clients try to enter "websitetitle.com/shop/"
 
 
 def catalog(request):

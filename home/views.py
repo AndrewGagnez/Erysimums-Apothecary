@@ -75,7 +75,7 @@ class Login(View):
         print(email, password)
         return render(request, 'login.html', {'error': error_message})
     
-'''
+'''TODO old login account method from previous project
 def login_user(request):
     if request.method == "POST":
         # Try to log in user

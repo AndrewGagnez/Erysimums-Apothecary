@@ -19,6 +19,7 @@
                     <th>Quantity</th>
                     <th>Total</th>
                     <th>Status</th>
+                    <th>Tracking Number</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,8 +27,8 @@
                 {% for order in orders %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td><img style="height: 80px;" class="rounded-circle" src="{{tempImageWorkAround}}{{product.product_image}}" alt=""></td>
-                    <td>{{order.product.name}}</td>
+                    <td><img style="height: 80px;" class="rounded-circle" src="{{tempImageWorkAround}}{{order.product.product_image}}" alt=""></td>
+                    <td>{{order.product.product_name}}</td>
                     <td>{{order.date}}</td>
                     <td>{{order.price|currency}}</td>
                     <td>{{order.quantity}}</td>
@@ -37,6 +38,7 @@
                     {%else%}
                     <td><small class="badge badge-warning">Pending</small></td>
                     {% endif %}
+                    <td>{{order.tracking_number}}</td>
                 </tr>
 
                 {% endfor %}

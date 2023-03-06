@@ -33,19 +33,20 @@
 							<p class="card-text"><b>{{product.product_price|currency}}</b></p>
 							<!-- {{product | is_in_cart:request.session.cart }} -->
 						</div>
+						
 						<div class="p-0 row-no-gutters">
 							{% if product|is_in_cart:request.session.cart %}
 							<div class="row-no-gutters">
-								<form action="/shop/#{{product.id}}" class="col-lg-4" method="post">
+								<form action="/shop/#{{product.id}}" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" method="post">
 									{% csrf_token %}
 									<input hidden type="text" name='product' value='{{product.id}}'>
 									<input hidden type="text" name='remove' value='True'>
 									<input type="submit" value=" - " class="btn btn-block btn-success border-right">
 								</form>
 								
-								<div class="text-center col-lg-4 btn btn-success">{{product|cart_quantity:request.session.cart}} in Cart</div>
+								<div class="text-center col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-success">{{product|cart_quantity:request.session.cart}} in Cart</div>
 
-								<form action="/shop/#{{product.id}}" class="col-lg-4" method="post">
+								<form action="/shop/#{{product.id}}" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" method="post">
 									{% csrf_token %}
 									<input hidden type="text" name='product' value='{{product.id}}'>
 									<input type="submit" value=" + " class="btn btn-block btn-success border-left">

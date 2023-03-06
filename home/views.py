@@ -66,7 +66,7 @@ class Login(View):
                     return HttpResponseRedirect(Login.return_url)
                 else:
                     Login.return_url = None
-                    return redirect('home:home')
+                    return redirect('shop:catalog')
             else:
                 error_message = 'Invalid !!'
         else:

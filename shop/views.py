@@ -36,7 +36,7 @@ class Index(View):
   
     def get(self, request):
         # print()
-        return HttpResponseRedirect(f'/{request.get_full_path()[1:]}') #TODO see what this does????
+        return HttpResponseRedirect(f'/shop/catalog{request.get_full_path()[1:]}') #TODO see what this does????
 
 
 def catalog(request):

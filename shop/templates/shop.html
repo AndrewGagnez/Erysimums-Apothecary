@@ -28,7 +28,7 @@
 				<div class="col-sm-4">
 					<div class="card mx-auto mb-3" id={{product.id}}>
 						<img class="cardImage" src="{{product.product_image.url}}" alt="Card image cap">
-						<div class="card-body">
+						<div class="cardContainer">
 							<p class="card-title">{{product.product_name}}</p>
 							<p class="card-text"><b>{{product.product_price|currency}}</b></p>
 							<!-- {{product | is_in_cart:request.session.cart }} -->
@@ -38,14 +38,14 @@
 
 							{% if product|is_in_cart:request.session.cart %}
 							<div class="row no-gutters">
-								<form action="/#{{product.id}}" class="col-2 " method="post">
+								<form action="/shop/#{{product.id}}" class="col-2 " method="post">
 									{% csrf_token %}
 									<input hidden type="text" name='product' value='{{product.id}}'>
 									<input hidden type="text" name='remove' value='True'>
 									<input type="submit" value=" - " class="btn btn-block btn-success border-right">
 								</form>
 								<div class="text-center col btn btn-success">{{product|cart_quantity:request.session.cart}} in Cart</div>
-								<form action="/#{{product.id}}" class="col-2 " method="post">
+								<form action="/shop/#{{product.id}}" class="col-2 " method="post">
 									{% csrf_token %}
 									<input hidden type="text" name='product' value='{{product.id}}'>
 									<input type="submit" value=" + " class="btn btn-block btn-success border-left">

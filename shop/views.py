@@ -87,7 +87,7 @@ class CheckOut(View):
 			print(cart.get(str(product.id)))
 			order = Order(customer=Customer(id=customer),
 						product=product,
-						price=product.price,
+						price=product.product_price,
 						address=address,
 						phone=phone,
 						quantity=cart.get(str(product.id)))

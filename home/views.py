@@ -60,15 +60,11 @@ class Login(View):
         error_message = None
         if customer:
             flag = check_password(password, customer.password)
-            user = authenticate(username=email, password=password)
             if flag:
                 request.session['customer'] = customer.id
-  
                 if Login.return_url:
-                    login(request, user)
                     return HttpResponseRedirect(Login.return_url)
                 else:
-                    login(request, user)
                     Login.return_url = None
                     return redirect('home:home')
             else:

@@ -27,7 +27,7 @@
 				{% for product in products %}
 				<div class="col-sm-3">
 					<div class="card mx-auto mb-3" id={{product.id}}>
-						<img class="cardImage" src="{{product.product_image.url}}" alt="Card image cap">
+						<img class="cardImage" src="{{tempImageWorkAround}}{{product.product_image}}" alt="Card image cap">
 						<div class="cardContainer">
 							<p class="card-title">{{product.product_name}}</p>
 							<p class="card-text"><b>{{product.product_price|currency}}</b></p>

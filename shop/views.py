@@ -54,9 +54,12 @@ def catalog(request):
     data = {}
     data['products'] = products
     data['categories'] = categories
+    data['tempImageWorkAround']= "/static/"
   
     print('you are : ', request.session.get('email'))
     return render(request, 'shop.html', data)
+
+
 
   
 

@@ -26,7 +26,7 @@
 			<div class="row mx-auto">
 				{% for product in products %}
 				<div class="col-sm-4">
-					<div class="card mx-auto mb-3" id={{product.product_id}} style="width: 18rem;">
+					<div class="card mx-auto mb-3" id={{product.id}}>
 						<img class="cardImage" src="{{product.product_image.url}}" alt="Card image cap">
 						<div class="card-body">
 							<p class="card-title">{{product.product_name}}</p>
@@ -54,7 +54,7 @@
 							{% else %}
 							<form action="/#{{product.id}}" method="POST" class="btn-block">
 								{% csrf_token %}
-								<input hidden type="text" name='product' value='{{product.product_id}}'>
+								<input hidden type="text" name='product' value='{{product.id}}'>
 								<input type="submit" class="float-right btn btn-success form-control"
 									value="Add To Cart">
 							</form>

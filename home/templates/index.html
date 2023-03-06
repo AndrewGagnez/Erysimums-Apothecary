@@ -65,11 +65,11 @@
         <div data-aos="zoom-in" class="row mx-auto">
             {% for special in specials %}
             <div class="col-sm-3">
-                <div class="card mx-auto mb-3" id={{product.product_id}} style="width: 18rem;">
+                <div class="card mx-auto mb-3" id={{product.id}}>
                     <img class="cardImage" src="{{tempImageWorkAround}}{{special.product_image}}" alt="Card image cap">
                     <div class="cardContainer">
-                        <h4 class="card-title">{{special.product_name}}</h4>
-                        <h4 class="card-text"><b>{{special.product_price}}</b></h4>
+                        <p class="card-title">{{special.product_name}}</p>
+                        <p class="card-text"><b>{{special.product_price}}</b></p>
                     </div>
                 </div>
             </div>

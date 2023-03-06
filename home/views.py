@@ -6,6 +6,7 @@ from django.views import View
 
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate, login
 
 import datetime
 
@@ -53,15 +54,14 @@ class Login(View):
         return render(request, 'login.html')
   
     def post(self, request):
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+        email = request.POST['email']
+        password = request.POST['password']
         customer = Customer.get_customer_by_email(email)
         error_message = None
         if customer:
             flag = check_password(password, customer.password)
             if flag:
                 request.session['customer'] = customer.id
-  
                 if Login.return_url:
                     return HttpResponseRedirect(Login.return_url)
                 else:
@@ -74,7 +74,41 @@ class Login(View):
   
         print(email, password)
         return render(request, 'login.html', {'error': error_message})
-  
+    
+'''
+def login_user(request):
+    if request.method == "POST":
+        # Try to log in user
+        email = request.POST["email"]
+        password = request.POST["password"]
+        user = authenticate(username=email, password=password)
+        # Check if the authentication was successful
+        if user is not None:
+            login(request, user)
+        else:
+            return render(
+                request,
+                "login.html",
+                {
+                    "message": "Invalid username and/or password",
+                    'Title': "Login",
+                    },
+                )
+    
+    # If it turns out user is already logged in but is trying to log in again redirect to user's homepage
+    if request.method == "GET" and request.user.is_authenticated:
+        return redirect(reverse("dashboard:dashboard"))
+
+    # Just give back log in page if none of the above is true
+    else:
+        return render(
+            request,
+            "login.html",
+            {
+                'Title': "Login",
+                },
+            )
+'''
   
 def Logout(request):
     request.session.clear()

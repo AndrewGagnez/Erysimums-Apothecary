@@ -52,7 +52,7 @@
 								</form>
 							</div>
 							{% else %}
-							<form action="/#{{product.id}}" method="POST" class="btn-block">
+							<form action="/shop/#{{product.id}}" method="POST" class="btn-block">
 								{% csrf_token %}
 								<input hidden type="text" name='product' value='{{product.id}}'>
 								<input type="submit" class="float-right btn btn-success form-control"

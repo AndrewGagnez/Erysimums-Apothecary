@@ -32,11 +32,11 @@ class Index(View):
   
         request.session['cart'] = cart
         print('cart', request.session['cart'])
-        return redirect('home:home')
+        return redirect('shop:catalog')
   
     def get(self, request):
         # print()
-        return HttpResponseRedirect(f'/{request.get_full_path()[1:]}')
+        return HttpResponseRedirect(f'/{request.get_full_path()[1:]}') #TODO see what this does????
 
 
 def catalog(request):

@@ -25,7 +25,7 @@ def paypal_payment_received(sender, **kwargs):
         except Exception:
             print('Paypal ipn_obj data not valid!')
         else:
-            mytransaction.status = True
+            mytransaction.paid = True
             mytransaction.save()
     else:
         print('Paypal payment status not completed: %s' % ipn_obj.payment_status)

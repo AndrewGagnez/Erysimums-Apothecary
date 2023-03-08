@@ -2,3 +2,4 @@ django-environ
 django
 pillow
 django-on-heroku
+django-paypal

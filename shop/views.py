@@ -94,7 +94,6 @@ class CheckOut(View):
 						quantity=cart.get(str(product.id)))
 			order.save()
 		request.session['cart'] = {}
-		host = request.get_host()
 
 		paypal_dict = {
 			"business": "sb-nbap325233031@business.example.com",
@@ -102,7 +101,7 @@ class CheckOut(View):
 			"item_name": "name of the item",
 			"invoice": "unique-invoice-id",
 			#"notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
-			"notify_url": 'http://{}{}'.format(host, reverse('paypal-ipn')),
+			"notify_url": 'https://erysimums-apothecary.herokuapp.com/shop/check-out/paypal-ipn',
 			"return": request.build_absolute_uri(reverse('your-return-view')),
 			"cancel_return": request.build_absolute_uri(reverse('your-cancel-view')),
 			"custom": "premium_plan",  # Custom command to correlate to some function later (optional)

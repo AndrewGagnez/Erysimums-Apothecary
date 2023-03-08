@@ -102,8 +102,8 @@ class CheckOut(View):
 			"invoice": "unique-invoice-id",
 			#"notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
 			"notify_url": 'https://erysimums-apothecary.herokuapp.com/shop/check-out/paypal-ipn',
-			"return": request.build_absolute_uri(reverse('your-return-view')),
-			"cancel_return": request.build_absolute_uri(reverse('your-cancel-view')),
+			"return": 'https://erysimums-apothecary.herokuapp.com/shop/cart',
+			"cancel_return": 'https://erysimums-apothecary.herokuapp.com/shop/cart',
 			"custom": "premium_plan",  # Custom command to correlate to some function later (optional)
 		}
 

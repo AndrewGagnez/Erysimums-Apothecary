@@ -97,7 +97,7 @@ class CheckOut(View):
 
 		paypal_dict = {
 			"business": "sb-nbap325233031@business.example.com",
-			"amount": product.product_price,
+			"amount": order.price, #TODO change this, order.price may not be the total price...
 			"item_name": product,
 			"invoice": "unique-invoice-id",
 			#"notify_url": request.build_absolute_uri(reverse('paypal-ipn')),

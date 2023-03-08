@@ -69,6 +69,10 @@ class Cart(View):
 		ids = list(request.session.get('cart').keys())
 		products = Product.get_products_by_id(ids)
 		print(products)
+		
+		#print(products.filter(product_price=1.00)) TODO useful code for future sql query shenanigans
+		#print(products.values_list('product_price')) TODO useful code for future sql query shenanigans
+
 		return render(request , 'cart.html' , 
 					  {'products' : products,
 					   'tempImageWorkAround': "/static/"
@@ -84,23 +88,35 @@ class CheckOut(View):
 		products = Product.get_products_by_id(list(cart.keys()))
 		print(address, phone, customer, cart, products)
 		
+		total_price = 0
 		for product in products:
-			print(cart.get(str(product.id)))
 			order = Order(customer=Customer(id=customer),
 						product=product,
 						price=product.product_price,
 						address=address,
 						phone=phone,
 						quantity=cart.get(str(product.id)))
+						#TODO model update unique identifier (order number)
+						#TODO model update total price per unique identifier (order number)
+						#TODO model update date of purchase
+			total_price = (order.price * order.quantity) + total_price
 			order.save()
-		request.session['cart'] = {}
+
+			#Debugging found below
+			#print(cart.get(str(product.id))) 
+			#print(order.product.product_name)
+			#print(order.product.product_price)
+
+		
+		product_names = [i[0] for i in list(products.values_list("product_name"))]
+
+		#request.session['cart'] = {} #this clears the cart...
 
 		paypal_dict = {
 			"business": "sb-nbap325233031@business.example.com",
-			"amount": order.price, #TODO change this, order.price may not be the total price...
-			"item_name": product,
-			"invoice": "unique-invoice-id",
-			#"notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+			"amount": total_price,
+			"item_name": product_names,
+			"invoice": "unique-invoice-id", #insert unique identifier generated from order creation, here
 			"notify_url": 'https://erysimums-apothecary.herokuapp.com/shop/check-out/paypal-ipn',
 			"return": 'https://erysimums-apothecary.herokuapp.com/shop/cart',
 			"cancel_return": 'https://erysimums-apothecary.herokuapp.com/shop/cart',

@@ -97,8 +97,8 @@ class CheckOut(View):
 
 		paypal_dict = {
 			"business": "sb-nbap325233031@business.example.com",
-			"amount": "10000000.00",
-			"item_name": "name of the item",
+			"amount": product.product_price,
+			"item_name": product,
 			"invoice": "unique-invoice-id",
 			#"notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
 			"notify_url": 'https://erysimums-apothecary.herokuapp.com/shop/check-out/paypal-ipn',

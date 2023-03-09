@@ -126,7 +126,10 @@ class CheckOut(View):
 
 		# Create the instance.
 		form = PayPalPaymentsForm(initial=paypal_dict)
-		context = {"form": form}
+		context = {
+			"form": form,
+			"order": order,
+	     }
 		return render(request, "payment.html", context)
 	
 		#request.session['cart'] = {} #this clears the cart... TODO don't forget to uncomment this when PayPal is done being setup

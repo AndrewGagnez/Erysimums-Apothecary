@@ -3,8 +3,6 @@ from shop.models import *
 from django.views import View
 from django.views.generic import TemplateView
 
-#from .middlewares.auth import auth_middleware
-
 from paypal.standard.forms import PayPalPaymentsForm
 
 import datetime
@@ -129,7 +127,7 @@ class CheckOut(View):
 		# Create the instance.
 		form = PayPalPaymentsForm(initial=paypal_dict)
 		context = {"form": form}
-		return render(request, "payment.html", context)
+		return render(request, "paypal.html", context)
 
 		return redirect('shop:cart')
 

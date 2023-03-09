@@ -34,13 +34,16 @@ if 'SECRET_KEY' in os.environ:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-PAYPAL_TEST = True
 
 if IS_HEROKU:
     ALLOWED_HOSTS = ["*"]
     CSRF_TRUSTED_ORIGINS = ["https://erysimums-apothecary.herokuapp.com"]
 else:
     ALLOWED_HOSTS = []
+
+#PayPal Settings
+PAYPAL_TEST = True
+#PAYPAL_BUY_BUTTON_IMAGE = "\static\images\PayPal_Button.png" TODO may not need this
 
 # Application definition
 

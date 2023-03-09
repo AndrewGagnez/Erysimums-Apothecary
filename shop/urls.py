@@ -8,6 +8,7 @@ from shop.views import Index
 from shop.views import CheckOut
 from shop.views import Cart
 from shop.views import OrderView
+from .middlewares.auth import  auth_middleware
 
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
@@ -15,5 +16,6 @@ urlpatterns = [
     path('cart', AuthenticationMiddleware(Cart.as_view()), name='cart'),
     path('check-out', CheckOut.as_view() , name='checkout'),
     path('orders', AuthenticationMiddleware(OrderView.as_view()), name='orders'),
+    path('orders', auth_middleware(OrderView.as_view()), name='orders'),
     path('paypal', include('paypal.standard.ipn.urls')),
 ]

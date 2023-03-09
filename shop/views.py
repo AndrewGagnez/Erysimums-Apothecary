@@ -3,6 +3,8 @@ from shop.models import *
 from django.views import View
 from django.views.generic import TemplateView
 
+#from .middlewares.auth import auth_middleware
+
 from paypal.standard.forms import PayPalPaymentsForm
 
 import datetime

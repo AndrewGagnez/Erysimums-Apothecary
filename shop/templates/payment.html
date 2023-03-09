@@ -4,24 +4,26 @@
 
 {% block body %}
 <!-- writes out the form tag automatically -->
-<div class="container-fluid" style="margin: 0px 400px 400px 400px;">
+<div class="container-fluid" style="margin: 0px 600px 600px 600px;">
     <table class="table table-bordered">
         Order Summary
         <hr>
         <tr>
             <td>Address:</td>
-            <td>{{order.product_name}}</td>
+            <td>{{order.address}}</td>
         </tr>
         <tr>
             <td>Phone Number</td>
-            <td>Phone number variable goes here</td>
+            <td>{{order.phone}}</td>
         </tr>
         <tr>
             <td>Est. Total Price</td>
-            <td>Total Price variable goes here</td>
+            <td>{{order.price}}</td>
         </tr>
     </table>
-    {{ form.render }}
+    <div class="container text-center">
+        {{ form.render }}
+    </div>
 </div>
 
 

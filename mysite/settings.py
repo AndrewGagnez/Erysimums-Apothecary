@@ -43,7 +43,7 @@ else:
 
 #PayPal Settings
 PAYPAL_TEST = True
-#PAYPAL_BUY_BUTTON_IMAGE = "\static\images\PayPal_Button.png" TODO may not need this
+PAYPAL_BUY_BUTTON_IMAGE = "\static\images\PayPal_Button_Small.png"
 
 # Application definition
 

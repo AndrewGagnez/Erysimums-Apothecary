@@ -111,7 +111,7 @@ class CheckOut(View):
 		
 		product_names = [i[0] for i in list(products.values_list("product_name"))]
 
-		#request.session['cart'] = {} #this clears the cart...
+		
 
 		paypal_dict = {
 			"business": "sb-nbap325233031@business.example.com",
@@ -127,7 +127,9 @@ class CheckOut(View):
 		# Create the instance.
 		form = PayPalPaymentsForm(initial=paypal_dict)
 		context = {"form": form}
-		return render(request, "paypal.html", context)
+		return render(request, "payment.html", context)
+	
+		#request.session['cart'] = {} #this clears the cart...
 
 		return redirect('shop:cart')
 

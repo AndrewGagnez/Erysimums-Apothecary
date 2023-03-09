@@ -6,14 +6,33 @@
 <!-- writes out the form tag automatically -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6"> 
-            {{ order.price }}
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left"> 
+            <table class="table table-bordered">
+                Order Summary
+                <hr>
+                <tr>
+                    <td>Address:</td>
+                    <td>address variable goes here</td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td>Phone number variable goes here</td>
+                </tr>
+                <tr>
+                    <td>Est. Total Price</td>
+                    <td>Total Price variable goes here</td>
+                </tr>
+            </table>
         </div>
         
-        <div class="col-sm-6">
-            <div style="display: flex; justify-content: center; padding:30px; "> 
-                {{ form.render }}
-            
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+            <div style="padding:30px;"> 
+                {{ form.render }} 
+            </div>
+            <hr>
+            <div style="padding:30px;"> 
+                <h3>Pay by Credit Card Coming Soon</h3>
+            </div>
         </div>
     </div>
 </div>

@@ -66,7 +66,8 @@ def catalog(request):
 
 class Cart(View):
 	def get(self , request):
-		ids = list(request.session.get('cart').keys())
+		ids = list(request.session.get('cart').keys()) #TODO this line has something to do with error about 
+		#looking at cart without needing to be logged in. but can we use this fact as a way to get people to checkout without logging in?
 		products = Product.get_products_by_id(ids)
 		print(products)
 		

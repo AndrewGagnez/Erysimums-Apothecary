@@ -131,7 +131,7 @@ class CheckOut(View):
 	
 		#request.session['cart'] = {} #this clears the cart... TODO don't forget to uncomment this when PayPal is done being setup
 
-		return redirect('shop:cart')
+		#return redirect('shop:cart') TODO this may not be needed anymore
 
 
 class OrderView(View):

@@ -129,7 +129,7 @@ class CheckOut(View):
 		context = {"form": form}
 		return render(request, "payment.html", context)
 	
-		#request.session['cart'] = {} #this clears the cart...
+		#request.session['cart'] = {} #this clears the cart... TODO don't forget to uncomment this when PayPal is done being setup
 
 		return redirect('shop:cart')
 

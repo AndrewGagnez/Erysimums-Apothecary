@@ -117,7 +117,7 @@ class CheckOut(View):
 			"business": "sb-nbap325233031@business.example.com",
 			"amount": total_price,
 			"item_name": product_names,
-			"invoice": "unique-invoice-id", #insert unique identifier generated from order creation, here
+			"invoice": "unique-invoice-id", #TODO insert unique identifier generated from order creation, here
 			"notify_url": 'https://erysimums-apothecary.herokuapp.com/shop/check-out/paypal-ipn',
 			"return": 'https://erysimums-apothecary.herokuapp.com/shop/cart',
 			"cancel_return": 'https://erysimums-apothecary.herokuapp.com/shop/cart',

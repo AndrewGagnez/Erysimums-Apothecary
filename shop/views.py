@@ -89,6 +89,12 @@ class CheckOut(View):
 		products = Product.get_products_by_id(list(cart.keys()))
 		print(address, phone, customer, cart, products)
 		
+
+		#TODO guest checkout goes here:
+		#plan is as follows
+		#if statement! 
+		# if login == true, do the usual thing 
+		# else if not true proceed to guest checkout
 		total_price = 0
 		for product in products:
 			order = Order(customer=Customer(id=customer),

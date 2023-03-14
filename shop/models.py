@@ -98,7 +98,6 @@ class Customer(models.Model):
         return False
     
 
-
 class Order(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE)
@@ -120,8 +119,6 @@ class Order(models.Model):
     def get_orders_by_customer(customer_id):
         return Order.objects.filter(customer=customer_id).order_by('-date')
     
-    
-
 """
 TODO for now commenting out shipment and review for later versions, product should be all that is needed for MVP
 #shipment

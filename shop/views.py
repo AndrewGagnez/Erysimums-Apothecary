@@ -91,35 +91,65 @@ class CheckOut(View):
 		# else if not true proceed to guest checkout
 
 	def post(self, request):
-		customer = request.session.get('customer')
 		address = request.POST.get('address')
 		phone = request.POST.get('phone')
 		cart = request.session.get('cart')
 		products = Product.get_products_by_id(list(cart.keys()))
-		print(address, phone, customer, cart, products)
-
-		if request.POST.get('guest_email') != "":
-			customer = request.POST.get('order.id')
-		
-
+		guest_email = request.session.get('guest_email')
 		total_price = 0
-		for product in products:
-			order = Order(customer=Customer(id=customer),
-						product=product,
-						price=product.product_price,
-						address=address,
-						phone=phone,
-						quantity=cart.get(str(product.id)))
-						#TODO model update unique identifier (order number)
-						#TODO model update total price per unique identifier (order number)
-						#TODO model update date of purchase
-			total_price = (order.price * order.quantity) + total_price
-			order.save()
 
-			#Debugging found below
-			#print(cart.get(str(product.id))) 
-			#print(order.product.product_name)
-			#print(order.product.product_price)
+		# Working steps for now
+		# 1) if there is no customer (i.e. not logged in) create "Guest" account
+		# 2) "login" "Guest" account
+ 		# 3) save the order with guest account credentials (found below)
+
+		# 1)
+		
+		# 2)
+
+		# 3)
+		if request.POST.get('guest_email') != "":
+			for product in products:
+							order = Order(
+										#customer=Customer(id=customer), this needs to either be taken out or changed... to the order ID?
+										customer=Guest(id=guest),
+										
+										product=product,
+										price=product.product_price,
+										address=address,
+										phone=phone,
+										quantity=cart.get(str(product.id)))
+										#TODO model update unique identifier (order number)
+										#TODO model update total price per unique identifier (order number)
+										#TODO model update date of purchase
+							total_price = (order.price * order.quantity) + total_price
+							order.save()
+
+							#Debugging found below
+							#print(cart.get(str(product.id))) 
+							#print(order.product.product_name)
+							#print(order.product.product_price)
+		
+		else:
+			customer = request.session.get('customer') #customer becomes object id of customer
+			for product in products:
+				order = Order(
+							customer=Customer(id=customer),
+							product=product,
+							price=product.product_price,
+							address=address,
+							phone=phone,
+							quantity=cart.get(str(product.id)))
+							#TODO model update unique identifier (order number)
+							#TODO model update total price per unique identifier (order number)
+							#TODO model update date of purchase
+				total_price = (order.price * order.quantity) + total_price
+				order.save()
+
+				#Debugging found below
+				#print(cart.get(str(product.id))) 
+				#print(order.product.product_name)
+				#print(order.product.product_price)
 
 		
 		product_names = str([i[0] for i in list(products.values_list("product_name"))])[1:-1]

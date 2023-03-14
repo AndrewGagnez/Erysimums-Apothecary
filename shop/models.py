@@ -98,6 +98,29 @@ class Customer(models.Model):
         return False
     
 
+class Guest(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+  
+    # to save the data
+    def register(self):
+        self.save()
+  
+    @staticmethod
+    def get_guest_by_email(email):
+        try:
+            return Guest.objects.get(email=email)
+        except:
+            return False
+  
+    def isExists(self):
+        if Guest.objects.filter(email=self.email):
+            return True
+  
+        return False
+    
+
 class Order(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE)
@@ -111,8 +134,6 @@ class Order(models.Model):
     status = models.BooleanField(default=False)
     tracking_number = models.TextField(default='', blank=True)  
     paid = models.BooleanField(default=False)
-    
-    guest_email = models.CharField(max_length=50, default='', blank=True)
     
     def placeOrder(self):
         self.save()

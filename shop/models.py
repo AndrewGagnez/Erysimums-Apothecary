@@ -106,8 +106,8 @@ class Order(models.Model):
                                  on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     price = models.IntegerField()
-    address = models.CharField(max_length=50, default='', blank=True)
-    phone = models.CharField(max_length=50, default='', blank=True)
+    address = models.CharField(max_length=50, default='', blank=True) #TODO must have a value, blank = False
+    phone = models.CharField(max_length=50, default='', blank=True) #TODO must have a value, blank = False
     date = models.DateField(default=datetime.datetime.today)
     status = models.BooleanField(default=False)
     tracking_number = models.TextField(default='', blank=True)  

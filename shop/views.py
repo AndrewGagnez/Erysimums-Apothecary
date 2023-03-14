@@ -110,7 +110,7 @@ class CheckOut(View):
 
 		
 		product_names = str([i[0] for i in list(products.values_list("product_name"))])[1:-1]
-
+		
 		
 
 		paypal_dict = {

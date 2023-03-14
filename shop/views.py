@@ -129,7 +129,8 @@ class CheckOut(View):
 		context = {
 			"form": form,
 			"order": order,
-			"product_names": product_names
+			"product_names": product_names,
+			"total_price": total_price,
 	     }
 		return render(request, "payment.html", context)
 	

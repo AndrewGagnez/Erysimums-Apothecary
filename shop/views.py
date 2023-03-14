@@ -66,6 +66,7 @@ def catalog(request):
 
 class Cart(View):
 	def get(self , request):
+		login_check = request.session.get('customer')
 		ids = list(request.session.get('cart').keys()) #TODO this line has something to do with error about 
 		#looking at cart without needing to be logged in. but can we use this fact as a way to get people to checkout without logging in?
 		products = Product.get_products_by_id(ids)
@@ -77,25 +78,30 @@ class Cart(View):
 		return render(request , 'cart.html' , 
 			{
 				'products' : products,
-				'tempImageWorkAround': "/static/"
+				'tempImageWorkAround': "/static/",
+				'login_check': login_check
 			} 
 		)
 
 class CheckOut(View):
-	def post(self, request):
-		address = request.POST.get('address')
-		phone = request.POST.get('phone')
-		customer = request.session.get('customer')
-		cart = request.session.get('cart')
-		products = Product.get_products_by_id(list(cart.keys()))
-		print(address, phone, customer, cart, products)
-		
-
 		#TODO guest checkout goes here:
 		#plan is as follows
 		#if statement! 
 		# if login == true, do the usual thing 
 		# else if not true proceed to guest checkout
+
+	def post(self, request):
+		customer = request.session.get('customer')
+		address = request.POST.get('address')
+		phone = request.POST.get('phone')
+		cart = request.session.get('cart')
+		products = Product.get_products_by_id(list(cart.keys()))
+		print(address, phone, customer, cart, products)
+
+		if request.POST.get('guest_email') != "":
+			customer = request.POST.get('order.id')
+		
+
 		total_price = 0
 		for product in products:
 			order = Order(customer=Customer(id=customer),

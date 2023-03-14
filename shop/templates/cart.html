@@ -79,9 +79,9 @@
                     <input type="text" name="phone" id="" class="form-control" placeholder="" aria-describedby="helpId">
                 </div>
 
-                {% if user.is_authenticated %} 
+                {% if login_check == None %} 
                 <div class="form-group">
-                  <label for="">email</label>
+                  <label for="">Email</label>
                   <input type="text" name="email" id="" class="form-control" placeholder="" aria-describedby="helpId">
                 </div>
                 {% endif %}

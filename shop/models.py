@@ -112,6 +112,8 @@ class Order(models.Model):
     tracking_number = models.TextField(default='', blank=True)  
     paid = models.BooleanField(default=False)
     
+    guest_email = models.CharField(max_length=50, default='', blank=True)
+    
     def placeOrder(self):
         self.save()
   

@@ -109,7 +109,7 @@ class CheckOut(View):
 			#print(order.product.product_price)
 
 		
-		product_names = [i[0] for i in list(products.values_list("product_name"))]
+		product_names = str([i[0] for i in list(products.values_list("product_name"))])[1:-1]
 
 		
 
@@ -129,6 +129,7 @@ class CheckOut(View):
 		context = {
 			"form": form,
 			"order": order,
+			"product_names": product_names
 	     }
 		return render(request, "payment.html", context)
 	

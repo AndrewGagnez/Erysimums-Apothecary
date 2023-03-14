@@ -57,7 +57,7 @@ def catalog(request):
 	data['categories'] = categories
 	data['tempImageWorkAround']= "/static/"
   
-	print('you are : ', request.session.get('email'))
+	print('you are : ', request.session.get('customer'))
 	return render(request, 'shop.html', data)
 
 
@@ -75,10 +75,11 @@ class Cart(View):
 		#print(products.values_list('product_price')) TODO useful code for future sql query shenanigans
 
 		return render(request , 'cart.html' , 
-					  {'products' : products,
-					   'tempImageWorkAround': "/static/"
-					   } 
-					)
+			{
+				'products' : products,
+				'tempImageWorkAround': "/static/"
+			} 
+		)
 
 class CheckOut(View):
 	def post(self, request):
